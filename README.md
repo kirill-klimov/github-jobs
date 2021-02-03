@@ -14,3 +14,5 @@
 - **User story (optional):** I can see jobs in different pages, 5 items each page
 
 **API:** https://jobs.github.com/api
+
+https://devchallenges.io/challenges/TtUjDt19eIHxNQ4n5jps
