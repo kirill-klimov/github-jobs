@@ -4,7 +4,8 @@ const INITIAL_STATE = {
   jobs: null,
   error: null,
   isLoaded: false,
-  isLoading: false
+  isLoading: false,
+  fresh: false
 }
 
 const jobsReducer = (state=INITIAL_STATE, action) => {
@@ -20,7 +21,8 @@ const jobsReducer = (state=INITIAL_STATE, action) => {
         jobs: action.payload,
         error: null,
         isLoaded: true,
-        isLoading: false
+        isLoading: false,
+        fresh: true,
       };
     case JobsActionTypes.FETCH_DATA_FAILURE:
       return {
@@ -28,7 +30,7 @@ const jobsReducer = (state=INITIAL_STATE, action) => {
         jobs: null,
         error: action.payload,
         isLoaded: false,
-        isLoading: false
+        isLoading: false,
       };
     default:
       return state;

@@ -3,6 +3,8 @@ import React from 'react';
 import { ReactComponent as Globe } from '../../assets/globe.svg';
 import { ReactComponent as Clock } from '../../assets/clock.svg';
 
+import { howManyDaysAgo } from '../../utils/utils';
+
 import {
   S_Item,
   S_ItemImage,
@@ -17,13 +19,7 @@ import {
 } from './item.styles';
 
 const Item = ({ company, company_logo, type, title, location, created_at }) => {
-  const diff = new Date() - new Date(created_at);
-  const daysAgo = Math.floor(diff / 1000 / 60 / 60 / 24);
-  let daysAgoString = '';
-  if (daysAgo === 0) daysAgoString = 'Today';
-  if (daysAgo === 1) daysAgoString = '1 day ago';
-  if (daysAgo > 1) daysAgoString = daysAgo + ' days ago';
-
+  const daysAgoString = howManyDaysAgo(created_at);
   return (
     <S_Item>
       <S_ItemImage src={company_logo} />

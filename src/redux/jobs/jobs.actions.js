@@ -3,6 +3,9 @@ import axios from 'axios';
 
 export const fetchDataStartAsync = () => {
   return async (dispatch, getState) => {
+    const { jobs: { isLoaded } } = getState();
+    if (isLoaded) return;
+    
     dispatch(fetchDataStart())
     const { filter: {fullTime, city, searchValue, selectedCity, cityList} } = getState();
     

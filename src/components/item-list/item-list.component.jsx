@@ -4,6 +4,8 @@ import { fetchDataStartAsync } from '../../redux/jobs/jobs.actions';
 
 import Item from '../item/item.component';
 
+import { Link } from 'react-router-dom';
+
 import {
   S_ItemList
 } from './item-list.styles';
@@ -16,7 +18,7 @@ const ItemList = ({ fetchData, jobs, isLoaded, isLoading }) => {
   return (
     <S_ItemList>
       {isLoading ? <h1>Loading...</h1> : null}
-      {isLoaded ? jobs.map(item => <Item key={item.id} {...item} />) : null}
+      {isLoaded ? jobs.map(item => <Link key={item.id} to={`/job/${item.id}`}><Item {...item} /></Link>) : null}
     </S_ItemList>
   );
 }
