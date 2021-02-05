@@ -1,10 +1,11 @@
 import { JobsActionTypes } from './jobs.types';
 import axios from 'axios';
 
-export const fetchDataStartAsync = () => {
+export const fetchDataStartAsync = (requested=false) => {
   return async (dispatch, getState) => {
-    const { jobs: { isLoaded } } = getState();
-    if (isLoaded) return;
+    const { jobs: { isLoaded, fresh } } = getState();
+    console.log(fresh);
+    if (isLoaded && (fresh && !requested)) return;
     
     dispatch(fetchDataStart())
     const { filter: {fullTime, city, searchValue, selectedCity, cityList} } = getState();

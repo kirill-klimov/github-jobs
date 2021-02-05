@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const S_SearchContainer = styled.div`
-  background-image: url('./assets/solen-feyissa.jpg');
+  background-image: url(${({src}) => src});
   background-position: center;
   background-size: cover;
   border-radius: 8px;

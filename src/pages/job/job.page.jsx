@@ -29,10 +29,10 @@ const JobPage = ({ jobs }) => {
           <S_SideHeader>How to apply</S_SideHeader>
         </S_SideHeaderContainer>
         <S_TextContainer dangerouslySetInnerHTML={{__html: DOMPurify.sanitize(how_to_apply)}}></S_TextContainer>
-      </S_LeftContainer>
-      {/* right dungeon */}
-      <JobInfo job={job} />
-    </S_JobPageContainer>
+      </S_LeftContainer>   
+      {/* right dungeon */} 
+      <JobInfo job={job} /> 
+    </S_JobPageContainer>   
   );
 }
 

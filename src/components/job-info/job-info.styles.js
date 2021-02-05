@@ -13,6 +13,7 @@ export const S_TextContainer = styled.div`
 `;
 
 export const S_SmallLabel = styled.span`
+font-family: 'Roboto', sans-serif;
   font-weight: 500;
   font-size: 12px;
   line-height: 14px;
@@ -20,6 +21,7 @@ export const S_SmallLabel = styled.span`
 `;
 
 export const S_CompanyTitle = styled.span`
+font-family: 'Roboto', sans-serif;
   font-weight: bold;
   font-size: 18px;
   line-height: 21px;
@@ -60,6 +62,7 @@ export const S_CompanyImage = styled.div`
 
 
 export const S_JobHeader = styled.h1`
+font-family: 'Roboto', sans-serif;
 font-style: normal;
 font-weight: bold;
 font-size: 24px;

@@ -38,17 +38,20 @@ justify-content: flex-end;
 `;
 
 export const S_CompanyText = styled.span`
+  font-family: 'Roboto', sans-serif;
 font-size: 12px;
 font-weight: 700;
 color: #334680;
 `;
 
 export const S_TitleText = styled.span`
+font-family: 'Roboto', sans-serif;
 font-size: 18px;
 color: #334680;
 `;
 
 export const S_EmploymentText = styled.span`
+font-family: 'Roboto', sans-serif;
 font-size: 12px;
 font-weight: 700;
 color: #334680;
@@ -64,6 +67,7 @@ column-gap: 6px;
 `;
 
 export const S_SubDetailText = styled.span`
+font-family: 'Roboto', sans-serif;
 font-size: 12px;
 font-weight: 500;
 color: #B9BDCF;

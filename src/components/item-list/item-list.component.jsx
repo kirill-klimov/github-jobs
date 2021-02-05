@@ -17,8 +17,14 @@ const ItemList = ({ fetchData, jobs, isLoaded, isLoading }) => {
 
   return (
     <S_ItemList>
-      {isLoading ? <h1>Loading...</h1> : null}
-      {isLoaded ? jobs.map(item => <Link key={item.id} to={`/job/${item.id}`}><Item {...item} /></Link>) : null}
+      {isLoading ? <h1 style={{fontFamily: 'Roboto'}}>Loading...</h1> : null}
+      {isLoaded ? jobs.map(item => 
+      <Link 
+        key={item.id}
+        to={`/job/${item.id}`}
+        style={{textDecoration: 'none'}}>
+          <Item {...item} />
+      </Link>) : null}
     </S_ItemList>
   );
 }

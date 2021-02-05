@@ -14,7 +14,7 @@ import {
 
 const BigSearch = ({ searchValue, setSearchValue, fetchData, isLoading }) => {
   return (
-    <S_SearchContainer>
+    <S_SearchContainer src='https://i.ibb.co/CBdbXqz/solen-feyissa.jpg'>
       <S_InputContainer>
         <Briefcase style={{opacity: 0.25}} height='15' width='15' />
         <S_Input 
@@ -25,7 +25,7 @@ const BigSearch = ({ searchValue, setSearchValue, fetchData, isLoading }) => {
         value={searchValue}
         onChange={e => setSearchValue(e.target.value)}/>
         <S_SearchButton
-        onClick={() => fetchData()}
+        onClick={() => fetchData(true)}
         disabled={isLoading}>Search</S_SearchButton>
       </S_InputContainer>
     </S_SearchContainer>
@@ -38,7 +38,7 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  fetchData: () => dispatch(fetchDataStartAsync()),
+  fetchData: (requested) => dispatch(fetchDataStartAsync(requested)),
   setSearchValue: (value) => dispatch(setSearchValue(value))
 })
 
