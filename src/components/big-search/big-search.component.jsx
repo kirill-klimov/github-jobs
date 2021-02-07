@@ -13,6 +13,11 @@ import {
 } from './big-search.styles';
 
 const BigSearch = ({ searchValue, setSearchValue, fetchData, isLoading }) => {
+  const handleKeyPress = e => {
+    if (e.key === 'Enter') {
+      fetchData(true);
+    }
+  }
   return (
     <S_SearchContainer src='https://i.ibb.co/CBdbXqz/solen-feyissa.jpg'>
       <S_InputContainer>
@@ -23,7 +28,8 @@ const BigSearch = ({ searchValue, setSearchValue, fetchData, isLoading }) => {
         id='search' 
         placeholder='Title, company, expertise or benefits' 
         value={searchValue}
-        onChange={e => setSearchValue(e.target.value)}/>
+        onChange={e => setSearchValue(e.target.value)}
+        onKeyPress={handleKeyPress}/>
         <S_SearchButton
         onClick={() => fetchData(true)}
         disabled={isLoading}>Search</S_SearchButton>
@@ -38,7 +44,7 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  fetchData: (requested) => dispatch(fetchDataStartAsync(requested)),
+  fetchData: (forced) => dispatch(fetchDataStartAsync(forced)),
   setSearchValue: (value) => dispatch(setSearchValue(value))
 })
 

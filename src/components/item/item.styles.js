@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { SharedElement } from 'react-motion-layout';
 
 export const S_Item = styled.div`
 background: #FFFFFF;

@@ -6,5 +6,5 @@ export const S_ContentContainer = styled.div`
 `;
 
 export const S_ContentColumn = styled.div`
-  flex-grow: 2;
+  flex-grow: 5;
 `;

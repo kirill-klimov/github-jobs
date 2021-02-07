@@ -2,6 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { ReactComponent as Globe } from '../../assets/globe.svg';
 
+import { fetchDataStartAsync } from '../../redux/jobs/jobs.actions';
+
 import {
   toggleFullTime,
   setCity,
@@ -24,7 +26,12 @@ import {
   S_Input
 } from './filter.styles';
 
-const Filter = ({fullTime, toggleFullTime, city, setCity, selectedCity, selectCity, cityList}) => {
+const Filter = ({fullTime, toggleFullTime, city, setCity, selectedCity, selectCity, cityList, fetchData}) => {
+  const handleKeyPress = e => {
+    if (e.key === 'Enter') {
+      fetchData(true);
+    }
+  }
   return (
     <S_FilterColumn>
 
@@ -50,6 +57,7 @@ const Filter = ({fullTime, toggleFullTime, city, setCity, selectedCity, selectCi
             id='citySearch' 
             placeholder='City, state, zip code or country' 
             value={city}
+            onKeyPress={handleKeyPress}
             onChange={(e) => setCity(e.target.value)}/>
         </S_FilterTextInputContainer>
 
@@ -86,7 +94,8 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   toggleFullTime: () => dispatch(toggleFullTime()),
   setCity: (city) => dispatch(setCity(city)),
-  selectCity: (index) => dispatch(selectCity(index))
+  selectCity: (index) => dispatch(selectCity(index)),
+  fetchData: (forced) => dispatch(fetchDataStartAsync(forced)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Filter);

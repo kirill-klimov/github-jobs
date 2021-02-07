@@ -1,11 +1,11 @@
 import { JobsActionTypes } from './jobs.types';
 import axios from 'axios';
+import { setCurrentPage } from '../pagination/pagination.actions';
 
-export const fetchDataStartAsync = (requested=false) => {
+export const fetchDataStartAsync = (forced=false) => {
   return async (dispatch, getState) => {
     const { jobs: { isLoaded, fresh } } = getState();
-    console.log(fresh);
-    if (isLoaded && (fresh && !requested)) return;
+    if (isLoaded && (fresh && !forced)) return;
     
     dispatch(fetchDataStart())
     const { filter: {fullTime, city, searchValue, selectedCity, cityList} } = getState();
@@ -27,6 +27,7 @@ export const fetchDataStartAsync = (requested=false) => {
     try {
       const {data} = await axios.post('http://localhost:5000/jobs', params);
       dispatch(fetchDataSuccess(data));
+      dispatch(setCurrentPage(1));
     } catch (error) {
       dispatch(fetchDataFailure(error))
     }

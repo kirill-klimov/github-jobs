@@ -6,6 +6,7 @@ import JobPage from './pages/job/job.page';
 import Footer from './components/footer/footer.component';
 
 import { Switch, Route } from 'react-router-dom';
+import { MotionLayoutProvider } from 'react-motion-layout';
 
 import {
   S_AppContainer,
@@ -17,14 +18,16 @@ function App() {
       <S_AppContainer>
         <S_PageContainer>
           <Header />
-          <Switch>
-            <Route exact path='/'>
-              <SearchPage />
-            </Route>
-            <Route path='/job/:jobId'>
-              <JobPage />
-            </Route>
-          </Switch>
+          <MotionLayoutProvider>
+            <Switch>
+              <Route exact path='/'>
+                <SearchPage />
+              </Route>
+              <Route path='/job/:jobId'>
+                <JobPage />
+              </Route>
+            </Switch>
+          </MotionLayoutProvider>
         </S_PageContainer>
         <Footer />
       </S_AppContainer>

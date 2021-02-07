@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import DOMPurify from 'dompurify';
 
@@ -17,6 +17,13 @@ import {
 } from './job.styles';
 
 const JobPage = ({ jobs }) => {
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth"
+    });
+  },[]);
   const { jobId } = useParams();
   const job = jobs.find(e => e.id === jobId);
   const { how_to_apply } = job;
