@@ -90,6 +90,10 @@ export const S_FilterTextInputContainer = styled.div`
 
 export const S_FilterColumn = styled.div`
   flex-grow: 1;
+
+  @media screen and (max-width: 1000px) {
+    min-width: 100%;
+  }
 `;
 
 export const S_Radio = styled.input`

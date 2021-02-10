@@ -9,6 +9,7 @@ export const S_SearchContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 0 18px;
 `;
 
 export const S_InputContainer = styled.div`

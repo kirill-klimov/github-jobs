@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React from 'react';
 
 import { ReactComponent as Globe } from '../../assets/globe.svg';
 import { ReactComponent as Clock } from '../../assets/clock.svg';
@@ -18,14 +18,9 @@ import {
   S_SubDetailText
 } from './item.styles';
 
-import { MotionScene, useMotion } from 'react-motion-layout';
-
 const Item = ({ id, company, company_logo, type, title, location, created_at }) => {
   const daysAgoString = howManyDaysAgo(created_at);
-  // const withTransition = useMotion(`job-${id}`);
-  // const callback = useCallback(() => history.push(`/story/${id}`));
   return (
-    // <MotionScene name={`job-${id}`} onClick={withTransition(callback)}>
       <S_Item>
         <S_ItemImage src={company_logo} />
         <S_ItemDescriptionContainer>
@@ -46,7 +41,6 @@ const Item = ({ id, company, company_logo, type, title, location, created_at }) 
           </S_DetailsContainer>
         </S_ItemDescriptionContainer>
       </S_Item>
-    // </MotionScene>
   );
 }
 

@@ -1,4 +1,4 @@
-import React, { createContext } from 'react';
+import React from 'react';
 
 import Header from './components/header/header.component';
 import SearchPage from './pages/search/search.page';
@@ -6,7 +6,6 @@ import JobPage from './pages/job/job.page';
 import Footer from './components/footer/footer.component';
 
 import { Switch, Route } from 'react-router-dom';
-import { MotionLayoutProvider } from 'react-motion-layout';
 
 import {
   S_AppContainer,
@@ -18,7 +17,6 @@ function App() {
       <S_AppContainer>
         <S_PageContainer>
           <Header />
-          <MotionLayoutProvider>
             <Switch>
               <Route exact path='/'>
                 <SearchPage />
@@ -27,7 +25,6 @@ function App() {
                 <JobPage />
               </Route>
             </Switch>
-          </MotionLayoutProvider>
         </S_PageContainer>
         <Footer />
       </S_AppContainer>

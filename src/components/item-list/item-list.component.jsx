@@ -34,7 +34,6 @@ const ItemList = ({ fetchData, jobs, isLoaded, isLoading, currentPage }) => {
   }) : [];
 
   return (
-    <MotionScreen>
       <S_ItemList>
         {isLoading ? <Loading /> : null}
 
@@ -42,7 +41,6 @@ const ItemList = ({ fetchData, jobs, isLoaded, isLoading, currentPage }) => {
 
         {isLoaded ? jobs.length !== 0 ? <Pagination totalItems={jobs.length} perPage={perPage} /> : <Empty /> : null}
       </S_ItemList>
-    </MotionScreen>
   );
 }
 
